@@ -2,6 +2,7 @@ package com.lld.model;
 
 import com.lld.enums.ChannelType;
 
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.UUID;
 
@@ -11,6 +12,7 @@ public class Notification {
     private List<User> receiverList;
     private final String content;
     private final ChannelType notificationType;
+    private final String createdAt;
 
     public Notification(String senderId, List<User> receiverList, String content, ChannelType notificationType) {
         this.id = UUID.randomUUID().toString();
@@ -18,6 +20,7 @@ public class Notification {
         this.receiverList = receiverList;
         this.content = content;
         this.notificationType = notificationType;
+        this.createdAt = LocalDateTime.now().toString();
     }
 
     public String getId() {
@@ -50,5 +53,17 @@ public class Notification {
 
     public boolean removeReceiverFromNotification(User user){
         return this.receiverList.remove(user);
+    }
+
+    @Override
+    public String toString() {
+        return "Notification{" +
+                "id='" + id + '\'' +
+                ", clientId='" + clientId + '\'' +
+                ", receiverList=" + receiverList +
+                ", content='" + content + '\'' +
+                ", notificationType=" + notificationType +
+                ", createdAt='" + createdAt + '\'' +
+                '}';
     }
 }

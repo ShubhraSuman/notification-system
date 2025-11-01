@@ -13,7 +13,7 @@ public class Main {
         User akash = new User("Akash", "akash712@gmail.com", "9779135436");
 
         shubhra.addChannelForClient("FB-110", ChannelType.EMAIL);
-        akash.addChannelForClient("FB-110", ChannelType.IN_APP_PUSH);
+        akash.addChannelForClient("FB-110", ChannelType.EMAIL);
 
         Notification notification = new Notification("FB-110", List.of(shubhra, akash), "Notification-1", ChannelType.EMAIL);
         NotificationService notificationService = new NotificationService();
